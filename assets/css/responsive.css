@@ -1,0 +1,33 @@
+@media screen and (max-width: 52em) {
+    .right,.left
+    {
+        float:none;
+        position:relative !important;
+        width:100%;
+        min-height:400px;
+    }
+    .handmade {
+    text-align:center !important;
+    margin-top:0px !important;
+}
+}
+
+@media screen and (max-width: 75em) {
+    body { 
+        font-size:16px;
+    }
+}
+
+@media screen and (max-width: 60em) {
+    body { 
+        font-size:14px;
+    }
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
