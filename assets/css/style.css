@@ -20,9 +20,8 @@ body {
 h1 {
     font-size: 30px;
     font-weight: 600;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     color: rgb(32, 32, 32);
-    margin-bottom: 30px;
 }
   
 .wrapper {
@@ -48,7 +47,7 @@ h1 {
   
 .perfil {
     bottom:0;
-    height:290px;
+    height:370px;
     left:0;
     margin:auto;
     position:absolute;
@@ -64,11 +63,11 @@ h1 {
     border-radius: 50%;
     margin:0 auto;
     position:relative;
-    width:150px;
-    height:150px;
+    width:140px;
+    height:140px;
 }
   
-  .perfil h3 {
+.perfil h3 {
     color: white;
     font-size:20px;
     text-align:center;
@@ -92,7 +91,7 @@ h1 {
 }
 
 .fa {
-    margin-top: 25px;
+    margin-top: 15px;
     font-size: 15px;
     text-align: center;
     text-decoration: none;
@@ -100,23 +99,24 @@ h1 {
 }
   
 .fa:hover {
-    color: purple;
+    color: #8D5F93;
     opacity: 0.7;
 }
 
-.container
-  {
-      margin:0 auto;
-      max-width:1100px;
-      padding:3em;
+.container {
+    margin:0 auto;
+    max-width:1100px;
+    padding:3em;
 }
   
-
-.container p{
-      color: black;
+.container img {
+    width: 100%;
+}
+.container p {
+    color: black;
 }
 
-.container section{
+.container section {
     margin:100px auto;
 }
 
@@ -127,3 +127,20 @@ ul {
     padding:0;
 }
 
+.btn {
+    border-color: white;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    width:130px;
+    font-weight:400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+  
+.btn:hover {
+    background-color: white;
+    color: black;
+}
