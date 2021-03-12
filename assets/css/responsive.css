@@ -6,10 +6,6 @@
         width:100%;
         min-height:400px;
     }
-    .handmade {
-    text-align:center !important;
-    margin-top:0px !important;
-}
 }
 
 @media screen and (max-width: 75em) {
