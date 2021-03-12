@@ -16,6 +16,16 @@
 </head>
 
     <body>
+
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+              <a href="/index.html">sobre</a>
+              <a href="/portfolio.html">portfólio</a>
+              <a href="#">contato</a>
+            </div>
+          </div>
+          
         <div class="wrapper clearfix">
             <div class="left">
 
@@ -42,6 +52,10 @@
                 
             </div>
             <div class="right">
+
+                <ul id=menu>
+                    <span style="font-size:30px;cursor:pointer; padding: 10px;background-color: black; color: white;" onclick="openNav()">&#9776;</span>
+                </ul>
                 
                 <div class="container">
                     
@@ -85,5 +99,16 @@
                 
             </div>
         </div>
+
+        <script>
+            function openNav() {
+              document.getElementById("myNav").style.height = "100%";
+            }
+            
+            function closeNav() {
+              document.getElementById("myNav").style.height = "0%";
+            }
+            </script>
+
     </body>
 </html>
