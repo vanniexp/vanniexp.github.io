@@ -15,18 +15,33 @@
         top: 15px;
         right: 0px;
         }
-      }
+    .portfolio {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+        }
+}
 
 
 @media screen and (max-width: 75em) {
     body { 
         font-size:16px;
     }
+    .portfolio { 
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+      }
 }
 
 @media screen and (max-width: 60em) {
     body { 
         font-size:14px;
+    }
+    .portfolio {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
     }
 }
 
