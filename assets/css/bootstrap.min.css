@@ -2960,7 +2960,7 @@ fieldset:disabled a.btn {
   text-decoration: none;
 }
 .btn-link:hover {
-  color: #000;
+  color: var(--purple);
   text-decoration: underline;
 }
 .btn-link.focus,
