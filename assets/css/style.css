@@ -7,7 +7,7 @@
 }
 
 .fa, .fab{
-  color: white;
+  color:purple;
   letter-spacing: 15px; 
   font-size: 18px;
 }
@@ -157,7 +157,4 @@
     line-height: normal;
     font-weight: 300;
 }
-.highlight {
-    color: #2ac5ed;
-    font-weight:bold;
-}                    
+             
