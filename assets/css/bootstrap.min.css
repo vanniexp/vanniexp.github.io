@@ -59,7 +59,6 @@ article,
 aside,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
 main,
@@ -72,13 +71,22 @@ body {
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 0.899rem;
+  font-size: 1.0rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.7;
   color: #55595c;
   text-align: left;
   background-color: #fff;
 }
+
+footer{
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 0.890rem;
+
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -164,7 +172,7 @@ a {
 }
 a:hover {
   color: var(--purple);
-  text-decoration: underline;
+  text-decoration: nome;
 }
 a:not([href]):not([class]) {
   color: inherit;
