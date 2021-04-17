@@ -147,7 +147,8 @@ blockquote {
 }
 b,
 strong {
-  font-weight: bolder;
+  font-weight: 300em;
+  color:black;
 }
 small {
   font-size: 80%;
