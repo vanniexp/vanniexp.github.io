@@ -11,6 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 :root {
   --blue: #007bff;
@@ -66,9 +67,9 @@ section {
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  font-size: 1.0rem;
+  font-size: .980rem;
   line-height: 1.8;
-  color: #4b4b4b;
+  color: #3f3f3f;
   text-align: left;
   background-color: #fff;
 }
@@ -93,6 +94,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Poppins", sans-serif;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
@@ -339,9 +341,10 @@ h4,
 h5,
 h6 {
   margin-bottom: 0.5rem;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   line-height: 1.7;
-  color: #1a1a1a;
+  color: #272727;
 }
 
 .hx,
