@@ -109,15 +109,15 @@
      * color-2(#eb5e55)
      * color-3(#f2d0a4)
      */
-    --color-1: hsla(345, 93%, 44%, 1);
-    --color-2: hsla(4, 79%, 63%, 1);
-    --color-3: hsla(34, 75%, 80%, 1);
+    --color-1: rgb(128, 48, 168);
+    --color-2: rgb(168, 86, 235);
+    --color-3: rgb(229, 166, 242);
 
     /* theme color variations
      */
-    --color-1-lighter: hsla(345, 93%, 64%, 1);
-    --color-1-light  : hsla(345, 93%, 54%, 1);
-    --color-1-dark   : hsla(345, 93%, 34%, 1);
+    --color-1-lighter: rgb(215, 78, 249);
+    --color-1-light  : rgb(185, 29, 247);
+    --color-1-dark   : rgb(103, 6, 167);
     --color-1-darker : hsla(345, 93%, 24%, 1);
     --color-2-lighter: hsla(4, 79%, 83%, 1);
     --color-2-light  : hsla(4, 79%, 73%, 1);
@@ -4697,7 +4697,7 @@ html.no-csstransitions .s-hero__content {
  *
  * ------------------------------------------------------------------- */
 .s-contact {
-    background-color: var(--color-1);
+    background-color: var(--color-bg);
     padding-top: calc(6 * var(--space));
     padding-bottom: var(--vspace-2);
 }
