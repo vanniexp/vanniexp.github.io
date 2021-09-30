@@ -118,11 +118,11 @@
     --color-1-lighter: rgb(215, 78, 249);
     --color-1-light  : rgb(185, 29, 247);
     --color-1-dark   : rgb(103, 6, 167);
-    --color-1-darker : hsla(345, 93%, 24%, 1);
-    --color-2-lighter: hsla(4, 79%, 83%, 1);
-    --color-2-light  : hsla(4, 79%, 73%, 1);
-    --color-2-dark   : hsla(4, 79%, 53%, 1);
-    --color-2-darker : hsla(4, 79%, 43%, 1);
+    --color-1-darker : rgb(95, 4, 118);
+    --color-2-lighter: rgb(235, 177, 246);
+    --color-2-light  : rgb(237, 132, 241);
+    --color-2-dark   : rgb(170, 40, 230);
+    --color-2-darker : rgb(127, 23, 196);
 
     /* feedback colors
      * color-error(#ffd1d2), color-success(#c8e675), 
