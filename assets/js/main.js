@@ -1,333 +1,247 @@
-/* ===================================================================
- * Flare 1.0.0 - Main JS
- *
- * ------------------------------------------------------------------- */
+/**
+* Template Name: Personal - v4.6.0
+* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+(function() {
+  "use strict";
 
-(function($) {
+  /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
 
-    "use strict";
-    
-    const cfg = {
-                scrollDuration : 800, // smoothscroll duration
-                mailChimpURL   : ''   // mailchimp url
-                };
-    const $WIN = $(window);
+  /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
 
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
 
-    // Add the User Agent to the <html>
-    // will be used for IE10/IE11 detection (Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; rv:11.0))
-    // const doc = document.documentElement;
-    // doc.setAttribute('data-useragent', navigator.userAgent);
+  /**
+   * Scrolls to an element with header offset
+   */
+  const scrollto = (el) => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 
+  /**
+   * Mobile nav toggle
+   */
+  on('click', '.mobile-nav-toggle', function(e) {
+    select('#navbar').classList.toggle('navbar-mobile')
+    this.classList.toggle('bi-list')
+    this.classList.toggle('bi-x')
+  })
 
-   /* preloader
-    * -------------------------------------------------- */
-    const ssPreloader = function() {
+  /**
+   * Scrool with ofset on links with a class name .scrollto
+   */
+  on('click', '#navbar .nav-link', function(e) {
+    let section = select(this.hash)
+    if (section) {
+      e.preventDefault()
 
-        $("html").addClass('ss-preload');
+      let navbar = select('#navbar')
+      let header = select('#header')
+      let sections = select('section', true)
+      let navlinks = select('#navbar .nav-link', true)
 
-        $WIN.on('load', function() {
+      navlinks.forEach((item) => {
+        item.classList.remove('active')
+      })
 
-            // force page scroll position to top at page refresh
-            $('html, body').animate({ scrollTop: 0 }, 'normal');
+      this.classList.add('active')
 
-            // will first fade out the loading animation 
-            $("#loader").fadeOut("slow", function() {
-                // will fade out the whole DIV that covers the website.
-                $("#preloader").delay(300).fadeOut("slow");
-            }); 
-            
-            // for hero content animations 
-            $("html").removeClass('ss-preload');
-            $("html").addClass('ss-loaded');
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile')
+        let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
+      }
 
+      if (this.hash == '#header') {
+        header.classList.remove('header-top')
+        sections.forEach((item) => {
+          item.classList.remove('section-show')
+        })
+        return;
+      }
+
+      if (!header.classList.contains('header-top')) {
+        header.classList.add('header-top')
+        setTimeout(function() {
+          sections.forEach((item) => {
+            item.classList.remove('section-show')
+          })
+          section.classList.add('section-show')
+
+        }, 350);
+      } else {
+        sections.forEach((item) => {
+          item.classList.remove('section-show')
+        })
+        section.classList.add('section-show')
+      }
+
+      scrollto(this.hash)
+    }
+  }, true)
+
+  /**
+   * Activate/show sections on load with hash links
+   */
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      let initial_nav = select(window.location.hash)
+
+      if (initial_nav) {
+        let header = select('#header')
+        let navlinks = select('#navbar .nav-link', true)
+
+        header.classList.add('header-top')
+
+        navlinks.forEach((item) => {
+          if (item.getAttribute('href') == window.location.hash) {
+            item.classList.add('active')
+          } else {
+            item.classList.remove('active')
+          }
+        })
+
+        setTimeout(function() {
+          initial_nav.classList.add('section-show')
+        }, 350);
+
+        scrollto(window.location.hash)
+      }
+    }
+  });
+
+  /**
+   * Skills animation
+   */
+  let skilsContent = select('.skills-content');
+  if (skilsContent) {
+    new Waypoint({
+      element: skilsContent,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = select('.progress .progress-bar', true);
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%'
         });
-    };
+      }
+    })
+  }
 
+  /**
+   * Testimonials slider
+   */
+  new Swiper('.testimonials-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
 
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      }
+    }
+  });
 
-   /* pretty print
-    * -------------------------------------------------- */
-    const ssPrettyPrint = function() {
-        $('pre').addClass('prettyprint');
-        $( document ).ready(function() {
-            prettyPrint();
+  /**
+   * Porfolio isotope and filter
+   */
+  window.addEventListener('load', () => {
+    let portfolioContainer = select('.portfolio-container');
+    if (portfolioContainer) {
+      let portfolioIsotope = new Isotope(portfolioContainer, {
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows'
+      });
+
+      let portfolioFilters = select('#portfolio-flters li', true);
+
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
         });
-    };
+        this.classList.add('filter-active');
 
-
-
-   /* move header
-    * -------------------------------------------------- */
-    const ssMoveHeader = function () {
-
-        const $hero = $('.s-hero'),
-              $hdr = $('.s-header'),
-              triggerHeight = $hero.outerHeight() - 170;
-
-
-        $WIN.on('scroll', function () {
-
-            let loc = $WIN.scrollTop();
-
-            if (loc > triggerHeight) {
-                $hdr.addClass('sticky');
-            } else {
-                $hdr.removeClass('sticky');
-            }
-
-            if (loc > triggerHeight + 20) {
-                $hdr.addClass('offset');
-            } else {
-                $hdr.removeClass('offset');
-            }
-
-            if (loc > triggerHeight + 150) {
-                $hdr.addClass('scrolling');
-            } else {
-                $hdr.removeClass('scrolling');
-            }
-
+        portfolioIsotope.arrange({
+          filter: this.getAttribute('data-filter')
         });
+      }, true);
+    }
 
-    };
+  });
 
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
 
+  /**
+   * Initiate portfolio details lightbox 
+   */
+  const portfolioDetailsLightbox = GLightbox({
+    selector: '.portfolio-details-lightbox',
+    width: '90%',
+    height: '90vh'
+  });
 
-   /* mobile menu
-    * ---------------------------------------------------- */ 
-    const ssMobileMenu = function() {
+  /**
+   * Portfolio details slider
+   */
+  new Swiper('.portfolio-details-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
 
-        const $toggleButton = $('.s-header__menu-toggle');
-        const $headerContent = $('.s-header__content');
-        const $siteBody = $("body");
-
-        $toggleButton.on('click', function(event){
-            event.preventDefault();
-            $toggleButton.toggleClass('is-clicked');
-            $siteBody.toggleClass('menu-is-open');
-        });
-
-        $headerContent.find('.s-header__nav a, .btn').on("click", function() {
-
-            // at 900px and below
-            if (window.matchMedia('(max-width: 900px)').matches) {
-                $toggleButton.toggleClass('is-clicked');
-                $siteBody.toggleClass('menu-is-open');
-            }
-        });
-
-        $WIN.on('resize', function() {
-
-            // above 900px
-            if (window.matchMedia('(min-width: 901px)').matches) {
-                if ($siteBody.hasClass("menu-is-open")) $siteBody.removeClass("menu-is-open");
-                if ($toggleButton.hasClass("is-clicked")) $toggleButton.removeClass("is-clicked");
-            }
-        });
-
-    };
-
-
-
-   /* photoswipe
-    * ----------------------------------------------------- */
-    const ssPhotoswipe = function() {
-        const items = [],
-              $pswp = $('.pswp')[0],
-              $folioItems = $('.folio-item');
-
-        // get items
-        $folioItems.each( function(i) {
-
-            let $folio = $(this),
-                $thumbLink =  $folio.find('.folio-item__thumb-link'),
-                $title = $folio.find('.folio-item__title'),
-                $caption = $folio.find('.folio-item__caption'),
-                $titleText = '<h4>' + $.trim($title.html()) + '</h4>',
-                $captionText = $.trim($caption.html()),
-                $href = $thumbLink.attr('href'),
-                $size = $thumbLink.data('size').split('x'),
-                $width  = $size[0],
-                $height = $size[1];
-        
-            let item = {
-                src  : $href,
-                w    : $width,
-                h    : $height
-            }
-
-            if ($caption.length > 0) {
-                item.title = $.trim($titleText + $captionText);
-            }
-
-            items.push(item);
-        });
-
-        // bind click event
-        $folioItems.each(function(i) {
-
-            $(this).find('.folio-item__thumb-link').on('click', function(e) {
-                e.preventDefault();
-                let options = {
-                    index: i,
-                    showHideOpacity: true
-                }
-
-                // initialize PhotoSwipe
-                let lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
-                lightBox.init();
-            });
-
-        });
-    };
-
-
-
-   /* slick slider
-    * ------------------------------------------------------ */
-    const ssSlickSlider = function() {
-
-        $('.clients').slick({
-            arrows: false,
-            dots: true,
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            pauseOnFocus: false,
-            autoplaySpeed: 1000,
-            responsive: [
-                {
-                    breakpoint: 1000,
-                    settings: {
-                        slidesToShow: 4
-                    }
-                },
-                {
-                    breakpoint: 800,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 2
-                    }
-                },
-                {
-                    breakpoint: 500,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                }
-
-            ]
-        });
-
-        $('.testimonial-slider').slick({
-            arrows: true,
-            dots: false,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            pauseOnFocus: false,
-            autoplaySpeed: 1500,
-            responsive: [
-                {
-                    breakpoint: 600,
-                    settings: {
-                        arrows: false,
-                        dots: true
-                    }
-                }
-            ]
-        });
-
-    };
-
-
-   /* animate on scroll
-    * ------------------------------------------------------ */
-    const ssAOS = function() {
-        
-        AOS.init( {
-            offset: 100,
-            duration: 600,
-            easing: 'ease-in-out',
-            delay: 300,
-            once: true,
-            disable: 'mobile'
-        });
-
-    };
-
-
-
-   /* alert boxes
-    * ------------------------------------------------------ */
-    const ssAlertBoxes = function() {
-
-        $('.alert-box').on('click', '.alert-box__close', function() {
-            $(this).parent().fadeOut(500);
-        }); 
-
-    };
-
-    
-   /* smooth scrolling
-    * ------------------------------------------------------ */
-    const ssSmoothScroll = function() {
-        
-        $('.smoothscroll').on('click', function (e) {
-            const target = this.hash;
-            const $target = $(target);
-            
-            e.preventDefault();
-            e.stopPropagation();
-
-            $('html, body').stop().animate({
-                'scrollTop': $target.offset().top
-            }, cfg.scrollDuration, 'swing').promise().done(function () {
-                window.location.hash = target;
-            });
-        });
-
-    };
-
-
-   /* back to top
-    * ------------------------------------------------------ */
-    const ssBackToTop = function() {
-        
-        const pxShow = 800;
-        const $goTopButton = $(".ss-go-top")
-
-        // Show or hide the button
-        if ($(window).scrollTop() >= pxShow) $goTopButton.addClass('link-is-visible');
-
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() >= pxShow) {
-                if(!$goTopButton.hasClass('link-is-visible')) $goTopButton.addClass('link-is-visible')
-            } else {
-                $goTopButton.removeClass('link-is-visible')
-            }
-        });
-    };
-
-
-
-   /* initialize
-    * ------------------------------------------------------ */
-    (function ssInit() {
-
-        ssPreloader();
-        ssPrettyPrint();
-        ssMoveHeader();
-        ssMobileMenu();
-        ssPhotoswipe();
-        ssSlickSlider();
-        ssAOS();
-        ssAlertBoxes();
-        ssSmoothScroll();
-        ssBackToTop();
-
-    })();
-
-})(jQuery);
+})()
