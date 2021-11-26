@@ -505,9 +505,10 @@ p {
 }
 
 #about .about-descr .p-heading {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-weight: 600;
+  font-size: 40px;
   text-align: left;
+  color:rgb(201, 201, 201)
 }
 
 #about .about-descr .separator {
@@ -520,6 +521,7 @@ p {
 # Services
 --------------------------------------------------------------*/
 #services {
+  text-align: center;
   background: #1F1F1F;
   position: relative;
   padding-bottom: 80px;
@@ -529,7 +531,7 @@ p {
   margin: 10px 0;
   position: relative;
   font-size: 13px;
-  color: #292929;
+  color: #a5a5a5;
   letter-spacing: 0.1em;
   font-weight: 500;
   text-transform: uppercase;
@@ -543,24 +545,10 @@ p {
 }
 
 .services-block i {
+
   font-size: 44px;
   color: #8432EB;
   line-height: 44px;
-}
-
-.services-slider .swiper-pagination {
-  margin-top: 30px;
-  position: relative;
-}
-.services-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #8432EC;
-}
-.services-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #8432EC;
 }
 
 /*--------------------------------------------------------------
