@@ -595,7 +595,7 @@ p {
   bottom: 0;
   z-index: 3;
   transition: all ease-in-out 0.3s;
-  background: rgba(255, 255, 255, 0.021);
+  background: rgb(255, 255, 255);
   padding: 15px;
 }
 #portfolio .portfolio-item .portfolio-info h4 {
