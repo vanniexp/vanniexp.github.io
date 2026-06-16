@@ -15,19 +15,13 @@ export default function Projects() {
     <div className="projects-page">
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="projects-hero container">
-        <div className="projects-hero__left">
-          <span className="tag-label fade-up">Trabalhos</span>
-          <h1 className="projects-hero__heading fade-up-2">
-            Meus <em className="accent">projetos</em>
-          </h1>
-          <p className="projects-hero__sub fade-up-3">
-            Cada projeto aqui começou com uma pergunta. Veja como cheguei nas respostas.
-          </p>
-        </div>
-        <div className="projects-hero__right fade-up">
-          <span className="projects-hero__count">{String(projects.length).padStart(2, '0')}</span>
-          <p className="projects-hero__count-label">cases em detalhe</p>
-        </div>
+        <span className="tag-label fade-up">Trabalhos</span>
+        <h1 className="projects-hero__heading fade-up-2">
+          Meus <em className="accent">projetos</em>
+        </h1>
+        <p className="projects-hero__sub fade-up-3">
+          Cada projeto aqui começou com uma pergunta. Veja como cheguei nas respostas.
+        </p>
       </section>
 
       {/* ── Filters ──────────────────────────────────────────────── */}
@@ -46,20 +40,15 @@ export default function Projects() {
       {/* ── Grid ─────────────────────────────────────────────────── */}
       <div className="projects-grid container">
         {filtered.map((project, i) => (
+          <div key={project.id} className="proj-card-anim" style={{ animationDelay: `${i * 0.08}s` }}>
           <Link
-            key={project.id}
             to={`/projetos/${project.id}`}
             className="proj-card"
-            style={{ animationDelay: `${i * 0.08}s` }}
           >
             <div
               className="proj-card__cover"
               style={{ background: project.gradient }}
-            >
-              <div className="proj-card__overlay">
-                <span className="proj-card__cta-overlay">Ver case study →</span>
-              </div>
-            </div>
+            />
             <div className="proj-card__body">
               <div className="proj-card__row">
                 <span className="proj-card__cat">{project.category}</span>
@@ -72,8 +61,10 @@ export default function Projects() {
                   <span key={t} className="proj-card__tag">{t}</span>
                 ))}
               </div>
+              <span className="proj-card__cta">ver case study ↗</span>
             </div>
           </Link>
+          </div>
         ))}
       </div>
     </div>

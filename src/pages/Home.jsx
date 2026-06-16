@@ -31,10 +31,9 @@ export default function Home() {
       <section className="hero">
         <div className="hero__inner container">
           <div className="hero__left">
-            <span className="tag-label fade-up">Portfolio — Product Design</span>
+            <span className="tag-label fade-up">Olá, eu sou</span>
 
             <h1 className="hero__heading fade-up-2">
-              <span className="hero__intro">Olá, eu sou</span>
               <span className="hero__logo-text">Vânia Cristina</span>
             </h1>
 

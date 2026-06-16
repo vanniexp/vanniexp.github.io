@@ -123,11 +123,9 @@ h2 {
 h3 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-style: italic;
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   letter-spacing: 0;
   line-height: 1.25;
-  color: var(--violet-deep);
 }
 
 /* eyebrow / label — JetBrains Mono */
