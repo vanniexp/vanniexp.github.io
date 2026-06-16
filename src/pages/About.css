@@ -11,8 +11,8 @@
 .about-hero__tag { margin-bottom: 24px; }
 
 .about-hero__heading {
-  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-  line-height: 1.1;
+  font-size: clamp(2.1rem, 3.8vw, 3rem);
+  line-height: 1.08;
   margin-bottom: 22px;
 }
 
@@ -75,27 +75,27 @@
   left: -41px;
   top: 0;
   font-size: .9rem;
-  color: var(--purple);
+  color: var(--violet);
   background: var(--bg);
   padding: 2px 0;
 }
 
 .timeline-item__period {
   display: block;
-  font-size: .65rem;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--purple);
+  color: var(--violet-deep);
   margin-bottom: 8px;
 }
 .timeline-item__title {
   font-family: var(--font-display);
-  text-transform: uppercase;
   font-weight: 400;
-  font-size: 1.05rem;
-  letter-spacing: .02em;
-  color: var(--black);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
   margin-bottom: 8px;
 }
 .timeline-item__company {
@@ -121,23 +121,23 @@
 }
 
 .skills-card {
-  background: var(--bg-soft);
+  background: var(--white);
   border: var(--line);
   border-radius: var(--r-md);
   padding: 28px 24px;
-  transition: transform var(--ease), box-shadow var(--ease);
+  box-shadow: var(--soft);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 .skills-card:hover {
   transform: translate(-3px, -3px);
-  box-shadow: var(--shadow-lilac);
+  box-shadow: 6px 6px 0 var(--lilac);
 }
 .skills-card__cat {
   font-family: var(--font-display);
-  text-transform: uppercase;
   font-weight: 400;
-  font-size: 1rem;
-  letter-spacing: .04em;
-  color: var(--purple);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: var(--violet-deep);
   margin-bottom: 16px;
 }
 .skills-card__item {

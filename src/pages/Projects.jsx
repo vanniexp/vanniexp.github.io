@@ -15,13 +15,19 @@ export default function Projects() {
     <div className="projects-page">
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="projects-hero container">
-        <span className="tag-label fade-up">Trabalhos</span>
-        <h1 className="projects-hero__heading fade-up-2">
-          Meus <em className="accent">projetos</em>
-        </h1>
-        <p className="projects-hero__sub fade-up-3">
-          Cada projeto aqui começou com uma pergunta. Veja como cheguei nas respostas.
-        </p>
+        <div className="projects-hero__left">
+          <span className="tag-label fade-up">Trabalhos</span>
+          <h1 className="projects-hero__heading fade-up-2">
+            Meus <em className="accent">projetos</em>
+          </h1>
+          <p className="projects-hero__sub fade-up-3">
+            Cada projeto aqui começou com uma pergunta. Veja como cheguei nas respostas.
+          </p>
+        </div>
+        <div className="projects-hero__right fade-up">
+          <span className="projects-hero__count">{String(projects.length).padStart(2, '0')}</span>
+          <p className="projects-hero__count-label">cases em detalhe</p>
+        </div>
       </section>
 
       {/* ── Filters ──────────────────────────────────────────────── */}

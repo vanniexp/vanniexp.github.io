@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import { MonoV } from './Brand'
 import './Navbar.css'
 
 const links = [
@@ -24,8 +25,8 @@ export default function Navbar() {
 
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <NavLink to="/" className="navbar__logo">
-        Vânia<span className="navbar__logo-dot">.</span>
+      <NavLink to="/" className="navbar__logo" aria-label="Home — Vannie">
+        <MonoV className="navbar__logo-v" />
       </NavLink>
 
       <nav className={`navbar__nav ${open ? 'navbar__nav--open' : ''}`}>

@@ -1,22 +1,22 @@
 import { Link } from 'react-router-dom'
 import { getFeaturedProjects } from '../data/projects'
+import { Sparkle } from '../components/Brand'
 import './Home.css'
 
-const marqueeItems = [
-  'UX Design', 'Pesquisa', 'Prototipagem', 'Design System',
-  'UI Design', 'Testes de Usabilidade', 'Acessibilidade', 'Product Design',
-]
+const marqueeItems = ['Vannie', 'Design Systems', 'UX Strategy', 'Product Design']
 
 function Marquee() {
   const row = [...marqueeItems, ...marqueeItems]
   return (
-    <div className="marquee" aria-hidden="true">
-      <div className="marquee__track">
-        {[...row, ...row].map((item, i) => (
-          <span key={i} className="marquee__item">
-            {item} <span className="marquee__star">✦</span>
-          </span>
-        ))}
+    <div className="marquee container" aria-hidden="true">
+      <div className="marquee__inner">
+        <div className="marquee__track">
+          {[...row, ...row].map((item, i) => (
+            <span key={i} className="marquee__item">
+              {item} <Sparkle className="marquee__star" />
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -31,16 +31,15 @@ export default function Home() {
       <section className="hero">
         <div className="hero__inner container">
           <div className="hero__left">
-            <span className="tag-label fade-up">Portfolio — UX Design</span>
+            <span className="tag-label fade-up">Portfolio — Product Design</span>
 
-            <h1 className="hero__heading display fade-up-2">
-              Vânia
-              <br />
-              <em className="accent">Cristina</em>
+            <h1 className="hero__heading fade-up-2">
+              <span className="hero__intro">Olá, eu sou</span>
+              <span className="hero__logo-text">Vânia Cristina</span>
             </h1>
 
             <p className="hero__body fade-up-3">
-              UX Designer que transforma problemas complexos em interfaces
+              Product designer que transforma problemas complexos em interfaces
               simples, com pesquisa de verdade e design com intenção.
             </p>
 
@@ -51,8 +50,8 @@ export default function Home() {
           </div>
 
           <div className="hero__right fade-up-3">
-            <span className="hero__star hero__star--1">✦</span>
-            <span className="hero__star hero__star--2">✦</span>
+            <Sparkle className="hero__star hero__star--1" />
+            <Sparkle className="hero__star hero__star--2" />
             <div className="photo-arch">
               <div className="photo-arch__inner">
                 <span>✦</span>
@@ -85,7 +84,7 @@ export default function Home() {
             {featured.map((p, i) => (
               <Link key={p.id} to={`/projetos/${p.id}`} className="home-card">
                 <div className="home-card__cover" style={{ background: p.gradient }}>
-                  <span className="home-card__num display">
+                  <span className="home-card__num">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>

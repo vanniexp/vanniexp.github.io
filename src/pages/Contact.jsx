@@ -5,14 +5,14 @@ const contactLinks = [
   {
     icon: '✉',
     label: 'E-mail',
-    value: 'vaniacristinast@gmail.com',
-    href: 'mailto:vaniacristinast@gmail.com',
+    value: 'vaniacristina.s@live.com',
+    href: 'mailto:vaniacristina.s@live.com',
   },
   {
     icon: 'in',
     label: 'LinkedIn',
-    value: 'linkedin.com/in/vaniacristina',
-    href: 'https://linkedin.com/in/vaniacristina',
+    value: 'linkedin.com/in/vanniexp',
+    href: 'https://linkedin.com/in/vanniexp',
   },
   {
     icon: 'Be',

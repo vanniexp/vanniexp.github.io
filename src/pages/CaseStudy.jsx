@@ -70,8 +70,10 @@ export default function CaseStudy() {
       <div className="case-body container">
         {project.sections.map((section, i) => (
           <section key={i} className="case-section">
-            <h2 className="case-section__title">{section.title}</h2>
-            <p className="case-section__text">{section.content}</p>
+            <div>
+              <h2 className="case-section__title">{section.title}</h2>
+              <p className="case-section__text">{section.content}</p>
+            </div>
           </section>
         ))}
       </div>
